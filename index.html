@@ -9,49 +9,25 @@
         
         body { 
             font-family: Arial, sans-serif; 
-            margin: 0; 
+            margin: 0; /* Đổi margin thành 0 để thanh menu kéo dài */
             padding: 0;
-            /* THAY ĐỔI MÀU CHỮ THÀNH TRẮNG */
-            color: #ffffff; 
-            
-            background-image: url(7cc8b7e0c2c34e9d17d2.jpg);
-            background-size: cover;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-color: #f0f8ff; /* Màu nền dự phòng */
-            position: relative; /* Cần thiết cho lớp phủ ::before */
+            color: #333; 
+            background-color: #f4f7f6; /* Màu nền xám nhạt */
         }
         
-        /* THÊM LỚP PHỦ ĐỂ NỘI DUNG NỔI BẬT HƠN */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Lớp phủ đen trong suốt 50% */
-            z-index: -1;
-        }
-
         .container {
             max-width: 1000px;
             margin: 0 auto; /* Căn giữa nội dung */
             padding: 40px;
-            position: relative; /* Đảm bảo nội dung nằm trên lớp phủ */
         }
 
         h1 { 
-            /* SỬA MÀU SẮC CHO TIÊU ĐỀ H1 */
-            color: #ffdd57; /* Màu VÀNG sáng nổi bật */
-            font-weight: bold; /* Thêm in đậm */
+            color: #34495e; /* Màu xanh đậm cho tiêu đề chính */
             padding: 20px 0;
             text-align: center;
-            /* ĐỔI MÀU NỀN CÓ ĐỘ TRONG SUỐT */
-            background-color: rgba(44, 62, 80, 0.9); 
+            background-color: #ecf0f1; /* Màu nền nhẹ cho tiêu đề chính */
             margin-bottom: 0;
             font-size: 2.5em;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         } 
 
         /* Thanh Menu Điều Hướng */
@@ -61,14 +37,13 @@
             margin: 0;
             background-color: #2c3e50; /* Màu nền xanh đen đậm */
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         ul.nav-menu li { 
             display: inline-block;
             margin: 0 15px;
         }
         ul.nav-menu li a { 
-            color: #ecf0f1; 
+            color: #ecf0f1; /* Màu chữ trắng/xám nhạt */
             text-decoration: none; 
             font-weight: bold;
             padding: 8px 12px;
@@ -76,32 +51,82 @@
             transition: background-color 0.3s;
         }
         ul.nav-menu li a:hover {
-            background-color: #3498db; 
+            background-color: #3498db; /* Màu xanh dương khi rê chuột */
             border-radius: 4px;
         }
         
         h2 { 
-            color: #ff6b6b; /* Màu đỏ sáng nổi bật hơn cho các tiêu đề phần */
-            border-bottom: 2px solid #ff6b6b; 
+            color: #e74c3c; /* Màu đỏ nổi bật cho các tiêu đề phần */
+            border-bottom: 2px solid #bdc3c7; 
             padding-bottom: 10px; 
             margin-top: 40px;
             font-size: 1.8em;
-            background-color: rgba(0, 0, 0, 0.4); /* Thêm nền tối nhẹ cho chữ nổi hơn */
-            padding: 15px;
-            border-radius: 5px;
         }
         
         h3 {
-            color: #3498db; 
-            margin-top: 30px;
+             color: #2980b9; /* Màu xanh dương cho tiêu đề phụ */
+             margin-top: 30px;
         }
 
         /* Form Đăng ký */
         .subscribe-form input[type="email"] {
             padding: 8px;
-            border: 2px solid #27ae60; 
+            border: 2px solid #27ae60; /* Viền xanh lá đậm hơn */
             border-radius: 4px;
             width: 250px;
-            color: #333; /* Giữ màu chữ trong ô nhập liệu là đen */
         }
-        .subscribe-form
+        .subscribe-form input[type="submit"] {
+            background-color: #27ae60; /* Màu xanh lá cây nổi bật */
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .subscribe-form input[type="submit"]:hover {
+            background-color: #1abc9c;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #bdc3c7, rgba(0, 0, 0, 0));
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ngô Quang Vinh Web Design</h1>
+    
+    <ul class="nav-menu">
+        <li><a href="index.html">Trang Chủ</a></li>
+        <li><a href="thongtin.html">Thông Tin</a></li>
+        <li><a href="dichvu.html">Dịch Vụ</a></li>
+    </ul>
+
+    <div class="container">
+        <h2>Hỗ trợ hack acc, giúp lấy lại acc bị mất</h2>
+        <p>Chúng tôi cung cấp các dịch vụ về hack acc, tài xỉu, cho vay, giá cả hợp lý theo yêu cầu khách hàng.</p>
+        
+        <h3>Đăng ký nhận thông báo mới từ chúng tôi</h3>
+        <div class="subscribe-form">
+            <input type="email" placeholder="Nhập Email">
+            <input type="submit" value="Đăng ký">
+        </div>
+
+        <hr>
+        
+        <h2>Tài xỉu</h2>
+        <p>Tài Xỉu (Sic Bo) là trò chơi cá cược cổ điển dùng ba viên xúc xắc, dự đoán tổng điểm hoặc các con số sẽ xuất hiện là trò chơi yêu thích của các con bạc.</p>
+        
+        <h2>Cho vay trả góp</h2>
+        <p>Cho vay trả góp là hình thức vay tiền mà người vay sẽ thanh toán cả gốc và lãi theo từng đợt định kỳ (thường là hàng tháng) cho đến khi hoàn tất khoản vay dành cho con bạc muốn gỡ gạt.</p>
+        
+        <h2>Hack acc</h2>
+        <p>Đánh cắp thông tin cá nhân hoặc tài chính-Chiếm đoạt tài sản trong game hoặc dịch vụ-Gửi thư rác (spam) hoặc lan truyền phần mềm độc hại-Phá hoại danh tiếng hoặc tài khoản của người khác.</p>
+    </div>
+    
+
+</body>
+</html>
