@@ -11,59 +11,81 @@
             font-family: Arial, sans-serif; 
             margin: 0; 
             padding: 0;
-            color: #333; /* Đổi màu chữ về xám đen để dễ đọc trên nền trắng */
-            background-color: #f4f7f6; /* Màu nền xám nhạt */
-            position: relative; /* Cần thiết cho các ảnh background fixed */
-            min-height: 100vh; /* Đảm bảo body đủ cao để ảnh nền hiển thị */
-            overflow-x: hidden; /* Ngăn chặn thanh cuộn ngang nếu ảnh quá lớn */
+            color: #333; 
+            background-color: #f4f7f6; 
+            position: relative; 
+            min-height: 100vh; 
+            overflow-x: hidden; 
         }
         
-        /* CSS CHỈNH SỬA KÍCH THƯỚC HAI ẢNH DỌC Ở HAI BÊN */
+        /* CSS MỚI CHO HAI ẢNH DỌC LẤP ĐẦY HAI BÊN */
         .side-image {
-            position: fixed; /* Giữ ảnh cố định khi cuộn */
+            position: fixed; 
             top: 0;
-            /* ĐIỀU CHỈNH: Chiều rộng tăng lên 250px (hoặc 25vw để linh hoạt) */
-            width: 250px; 
-            height: 100%; /* Chiều cao chiếm toàn bộ chiều cao màn hình */
-            object-fit: cover; /* Đảm bảo ảnh bao phủ toàn bộ vùng mà không bị méo */
-            z-index: -1; /* Đặt ảnh ở lớp dưới cùng, phía sau nội dung */
+            height: 100%; 
+            object-fit: cover; 
+            z-index: -1; 
+            /* THAY ĐỔI QUAN TRỌNG: Loại bỏ width cố định */
+            /* width sẽ được điều chỉnh thông qua margin của container */
         }
 
         .left-image {
             left: 0;
+            /* Đảm bảo ảnh kéo dài đến rìa của container chính */
+            right: 50%; /* Kéo dài đến giữa */
+            margin-right: 500px; /* Sau đó lùi lại bằng một nửa chiều rộng container (1000px / 2) */
+            /* Hoặc đơn giản hơn: */
+            /* width: calc(50vw - 500px); */ /* 50vw - nửa chiều rộng container */
         }
 
         .right-image {
             right: 0;
+            /* Đảm bảo ảnh kéo dài đến rìa của container chính */
+            left: 50%; /* Kéo dài đến giữa */
+            margin-left: 500px; /* Sau đó tiến lên bằng một nửa chiều rộng container (1000px / 2) */
+            /* Hoặc đơn giản hơn: */
+            /* width: calc(50vw - 500px); */ /* 50vw - nửa chiều rộng container */
         }
-
-        /* MEDIA QUERY: Tối ưu cho màn hình rộng hơn 1400px */
-        @media (min-width: 1400px) {
-            .side-image {
-                /* Chiều rộng chiếm 15% chiều rộng màn hình, linh hoạt hơn */
-                width: 15vw; 
-            }
-            .container {
-                /* Giảm kích thước container chính để tạo thêm không gian cho ảnh bên */
-                max-width: 1100px;
-            }
-        }
-        /* KẾT THÚC MEDIA QUERY */
 
         .container {
-            max-width: 1000px;
+            max-width: 1000px; /* Chiều rộng cố định của nội dung chính */
             margin: 0 auto; /* Căn giữa nội dung */
             padding: 40px;
-            background-color: rgba(255, 255, 255, 0.9); /* Thêm nền trắng hơi trong suốt cho container */
-            box-shadow: 0 0 15px rgba(0,0,0,0.1); /* Thêm đổ bóng nhẹ */
-            position: relative; /* Đảm bảo nội dung nằm trên các ảnh nền */
-            z-index: 1; /* Đảm bảo container nằm trên các ảnh nền */
-            min-height: 100vh; /* Đảm bảo container đủ cao */
+            background-color: rgba(255, 255, 255, 0.9); 
+            box-shadow: 0 0 15px rgba(0,0,0,0.1); 
+            position: relative; 
+            z-index: 1; 
+            min-height: 100vh; 
+            
+            /* THAY ĐỔI QUAN TRỌNG: Thêm margin để tạo khoảng trống cho ảnh bên */
+            /* Điều này không cần thiết nếu dùng width: calc() cho ảnh bên */
+            /* margin-left: auto; */
+            /* margin-right: auto; */
         }
 
+        /* MEDIA QUERY để điều chỉnh ảnh khi màn hình nhỏ hơn 1000px */
+        @media (max-width: 1000px) {
+            .side-image {
+                display: none; /* Ẩn ảnh bên nếu màn hình quá nhỏ để tránh làm hỏng bố cục */
+            }
+            .container {
+                max-width: 100%; /* Cho container chiếm toàn bộ chiều rộng có sẵn */
+                padding: 20px; /* Giảm padding */
+            }
+        }
+        /* MEDIA QUERY để điều chỉnh ảnh trên màn hình lớn */
+        @media (min-width: 1001px) {
+            .left-image {
+                width: calc((100vw - 1000px) / 2); /* Tính toán chiều rộng lấp đầy bên trái */
+            }
+            .right-image {
+                width: calc((100vw - 1000px) / 2); /* Tính toán chiều rộng lấp đầy bên phải */
+            }
+        }
+
+
         h1 { 
-            /* SỬA MÀU SẮC VÀ NỘI DUNG CHO TIÊU ĐỀ H1 */
-            color: #e74c3c; /* Màu ĐỎ nổi bật theo yêu cầu */
+            color: #e74c3c; 
             font-weight: bold; 
             padding: 20px 0;
             text-align: center;
@@ -73,12 +95,11 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         } 
 
-        /* Thanh Menu Điều Hướng */
         ul.nav-menu { 
             list-style-type: none; 
             padding: 10px 0; 
             margin: 0;
-            background-color: #2c3e50; /* Màu nền xanh đen đậm */
+            background-color: #2c3e50; 
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
@@ -100,7 +121,7 @@
         }
         
         h2 { 
-            color: #e74c3c; /* Màu đỏ nổi bật cho các tiêu đề phần */
+            color: #e74c3c; 
             border-bottom: 2px solid #bdc3c7; 
             padding-bottom: 10px; 
             margin-top: 40px;
@@ -112,7 +133,6 @@
             margin-top: 30px;
         }
 
-        /* Form Đăng ký */
         .subscribe-form input[type="email"] {
             padding: 8px;
             border: 2px solid #27ae60; 
@@ -139,12 +159,11 @@
             margin: 30px 0;
         }
 
-        /* CSS CHO HÌNH ẢNH PROFILE */
         .profile-image {
             display: block;
-            margin: 0 auto 30px auto; /* Căn giữa và tạo khoảng cách */
-            border-radius: 50%; /* Làm ảnh tròn (optional) */
-            max-width: 200px; /* Giới hạn kích thước ảnh */
+            margin: 0 auto 30px auto; 
+            border-radius: 50%; 
+            max-width: 200px; 
             height: auto;
             border: 5px solid #fff;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -181,7 +200,7 @@
         <p>Tài Xỉu (Sic Bo) là trò chơi cá cược cổ điển dùng ba viên xúc xắc, dự đoán tổng điểm hoặc các con số sẽ xuất hiện là trò chơi yêu thích của các con bạc.</p>
         
         <h2>Cho vay trả góp</h2>
-        <p>Cho vay trả góp là hình thức vay tiền mà người vay sẽ thanh toán cả gốc và lãi theo từng đợt định kỳ (thường là hàng tháng) cho đến khi hoàn tất khoản vay dành cho con bạc muốn gỡ gạt.</p>
+        <p>Cho vay trả góp là hình thức vay tiền mà người vay sẽ thanh toán cả gốc và lãi theo từng đợt định kỳ (thường là hàng tháng) cho đến khi hoàn tất khoản khoản vay dành cho con bạc muốn gỡ gạt.</p>
         
         <h2>Hack acc</h2>
         <p>Đánh cắp thông tin cá nhân hoặc tài chính-Chiếm đoạt tài sản trong game hoặc dịch vụ-Gửi thư rác (spam) hoặc lan truyền phần mềm độc hại-Phá hoại danh tiếng hoặc tài khoản của người khác.</p>
