@@ -9,7 +9,7 @@
         
         body { 
             font-family: Arial, sans-serif; 
-            margin: 0; /* Đổi margin thành 0 để thanh menu kéo dài */
+            margin: 0; 
             padding: 0;
             color: #333; 
             background-color: #f4f7f6; /* Màu nền xám nhạt */
@@ -22,10 +22,12 @@
         }
 
         h1 { 
-            color: #34495e; /* Màu xanh đậm cho tiêu đề chính */
+            /* SỬA MÀU SẮC CHO TIÊU ĐỀ H1 */
+            color: #e74c3c; /* Màu ĐỎ nổi bật */
+            font-weight: bold; /* Thêm in đậm */
             padding: 20px 0;
             text-align: center;
-            background-color: #ecf0f1; /* Màu nền nhẹ cho tiêu đề chính */
+            background-color: #ecf0f1; 
             margin-bottom: 0;
             font-size: 2.5em;
         } 
@@ -43,7 +45,7 @@
             margin: 0 15px;
         }
         ul.nav-menu li a { 
-            color: #ecf0f1; /* Màu chữ trắng/xám nhạt */
+            color: #ecf0f1; 
             text-decoration: none; 
             font-weight: bold;
             padding: 8px 12px;
@@ -51,7 +53,7 @@
             transition: background-color 0.3s;
         }
         ul.nav-menu li a:hover {
-            background-color: #3498db; /* Màu xanh dương khi rê chuột */
+            background-color: #3498db; 
             border-radius: 4px;
         }
         
@@ -64,19 +66,19 @@
         }
         
         h3 {
-             color: #2980b9; /* Màu xanh dương cho tiêu đề phụ */
+             color: #2980b9; 
              margin-top: 30px;
         }
 
         /* Form Đăng ký */
         .subscribe-form input[type="email"] {
             padding: 8px;
-            border: 2px solid #27ae60; /* Viền xanh lá đậm hơn */
+            border: 2px solid #27ae60; 
             border-radius: 4px;
             width: 250px;
         }
         .subscribe-form input[type="submit"] {
-            background-color: #27ae60; /* Màu xanh lá cây nổi bật */
+            background-color: #27ae60; 
             color: white;
             padding: 8px 15px;
             border: none;
@@ -94,10 +96,21 @@
             background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #bdc3c7, rgba(0, 0, 0, 0));
             margin: 30px 0;
         }
+
+        /* CSS MỚI CHO HÌNH ẢNH */
+        .profile-image {
+            display: block;
+            margin: 0 auto 30px auto; /* Căn giữa và tạo khoảng cách */
+            border-radius: 50%; /* Làm ảnh tròn (nếu muốn) */
+            max-width: 200px; /* Giới hạn kích thước ảnh */
+            height: auto;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
-    <h1>Ngô Quang Vinh Web Design</h1>
+    <h1>Tôi là học sinh lớp 41T2</h1>
     
     <ul class="nav-menu">
         <li><a href="index.html">Trang Chủ</a></li>
@@ -106,6 +119,8 @@
     </ul>
 
     <div class="container">
+        <img src="7cc8b7e0c2c34e9d17d2.jpg" alt="Hình ảnh cá nhân học sinh" class="profile-image">
+
         <h2>Hỗ trợ hack acc, giúp lấy lại acc bị mất</h2>
         <p>Chúng tôi cung cấp các dịch vụ về hack acc, tài xỉu, cho vay, giá cả hợp lý theo yêu cầu khách hàng.</p>
         
