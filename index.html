@@ -5,36 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ - Ngô Quang Vinh</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; color: #333; }
+        /* CHỈNH SỬA MÀU SẮC CHO GIAO DIỆN NỔI BẬT HƠN */
         
-        h1 { color: #551a8b; /* Màu tím */ } 
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; /* Đổi margin thành 0 để thanh menu kéo dài */
+            padding: 0;
+            color: #333; 
+            background-color: #f4f7f6; /* Màu nền xám nhạt */
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto; /* Căn giữa nội dung */
+            padding: 40px;
+        }
 
+        h1 { 
+            color: #34495e; /* Màu xanh đậm cho tiêu đề chính */
+            padding: 20px 0;
+            text-align: center;
+            background-color: #ecf0f1; /* Màu nền nhẹ cho tiêu đề chính */
+            margin-bottom: 0;
+            font-size: 2.5em;
+        } 
+
+        /* Thanh Menu Điều Hướng */
         ul.nav-menu { 
             list-style-type: none; 
-            padding: 0; 
-            margin-bottom: 30px;
-        }
-        ul.nav-menu li a { 
-            color: purple; 
-            text-decoration: none; 
-            font-weight: bold;
+            padding: 10px 0; 
+            margin: 0;
+            background-color: #2c3e50; /* Màu nền xanh đen đậm */
+            text-align: center;
         }
         ul.nav-menu li { 
-            margin-bottom: 5px; 
+            display: inline-block;
+            margin: 0 15px;
+        }
+        ul.nav-menu li a { 
+            color: #ecf0f1; /* Màu chữ trắng/xám nhạt */
+            text-decoration: none; 
+            font-weight: bold;
+            padding: 8px 12px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        ul.nav-menu li a:hover {
+            background-color: #3498db; /* Màu xanh dương khi rê chuột */
+            border-radius: 4px;
         }
         
-        h2 { color: black; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 30px;}
+        h2 { 
+            color: #e74c3c; /* Màu đỏ nổi bật cho các tiêu đề phần */
+            border-bottom: 2px solid #bdc3c7; 
+            padding-bottom: 10px; 
+            margin-top: 40px;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+             color: #2980b9; /* Màu xanh dương cho tiêu đề phụ */
+             margin-top: 30px;
+        }
 
+        /* Form Đăng ký */
         .subscribe-form input[type="email"] {
-            padding: 5px;
-            border: 1px solid green;
+            padding: 8px;
+            border: 2px solid #27ae60; /* Viền xanh lá đậm hơn */
+            border-radius: 4px;
+            width: 250px;
         }
         .subscribe-form input[type="submit"] {
-            background-color: green;
+            background-color: #27ae60; /* Màu xanh lá cây nổi bật */
             color: white;
-            padding: 5px 10px;
+            padding: 8px 15px;
             border: none;
             cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .subscribe-form input[type="submit"]:hover {
+            background-color: #1abc9c;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #bdc3c7, rgba(0, 0, 0, 0));
+            margin: 30px 0;
         }
     </style>
 </head>
@@ -47,27 +105,28 @@
         <li><a href="dichvu.html">Dịch Vụ</a></li>
     </ul>
 
-    <h2>Hỗ trợ hack acc, giúp lấy lại acc bị mất</h2>
-    <p>Chúng tôi cung cấp các dịch vụ về hack acc, tài xỉu, cho vay, giá cả hợp lý theo yêu cầu khách hàng.</p>
-    
-    <h3>Đăng ký nhận thông báo mới từ chúng tôi</h3>
-    <div class="subscribe-form">
-        <input type="email" placeholder="Nhập Email">
-        <input type="submit" value="Đăng ký">
-    </div>
+    <div class="container">
+        <h2>Hỗ trợ hack acc, giúp lấy lại acc bị mất</h2>
+        <p>Chúng tôi cung cấp các dịch vụ về hack acc, tài xỉu, cho vay, giá cả hợp lý theo yêu cầu khách hàng.</p>
+        
+        <h3>Đăng ký nhận thông báo mới từ chúng tôi</h3>
+        <div class="subscribe-form">
+            <input type="email" placeholder="Nhập Email">
+            <input type="submit" value="Đăng ký">
+        </div>
 
-    <hr>
-    
-    <h2>Tài xỉu</h2>
-    <p>Tài Xỉu (Sic Bo) là trò chơi cá cược cổ điển dùng ba viên xúc xắc, dự đoán tổng điểm hoặc các con số sẽ xuất hiện là trò chơi yêu thích của các con bạc.</p>
-    
-    <h2>Cho vay trả góp</h2>
-    <p>Cho vay trả góp là hình thức vay tiền mà người vay sẽ thanh toán cả gốc và lãi theo từng đợt định kỳ (thường là hàng tháng) cho đến khi hoàn tất khoản vay dành cho con bạc muốn gỡ gạt.</p>
-    
-    <h2>Hack acc</h2>
-    <p>Đánh cắp thông tin cá nhân hoặc tài chính-Chiếm đoạt tài sản trong game hoặc dịch vụ-Gửi thư rác (spam) hoặc lan truyền phần mềm độc hại-Phá hoại danh tiếng hoặc tài khoản của người khác.</p>
+        <hr>
+        
+        <h2>Tài xỉu</h2>
+        <p>Tài Xỉu (Sic Bo) là trò chơi cá cược cổ điển dùng ba viên xúc xắc, dự đoán tổng điểm hoặc các con số sẽ xuất hiện là trò chơi yêu thích của các con bạc.</p>
+        
+        <h2>Cho vay trả góp</h2>
+        <p>Cho vay trả góp là hình thức vay tiền mà người vay sẽ thanh toán cả gốc và lãi theo từng đợt định kỳ (thường là hàng tháng) cho đến khi hoàn tất khoản vay dành cho con bạc muốn gỡ gạt.</p>
+        
+        <h2>Hack acc</h2>
+        <p>Đánh cắp thông tin cá nhân hoặc tài chính-Chiếm đoạt tài sản trong game hoặc dịch vụ-Gửi thư rác (spam) hoặc lan truyền phần mềm độc hại-Phá hoại danh tiếng hoặc tài khoản của người khác.</p>
+    </div>
     
 
 </body>
 </html>
-
