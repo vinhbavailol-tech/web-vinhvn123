@@ -5,13 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dịch Vụ - Ngô Quang Vinh</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #f4f4f9; color: #333; }
-        nav { padding: 10px; background-color: #007bff; border-radius: 5px; }
-        nav a { margin-right: 25px; text-decoration: none; color: white; font-weight: bold; padding: 5px; transition: background-color 0.3s; }
-        nav a:hover { background-color: #0056b3; border-radius: 3px; }
-        h1 { color: #dc3545; border-bottom: 2px solid #dc3545; padding-bottom: 10px; }
-        ol { padding-left: 20px; }
-        li { margin-bottom: 10px; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; /* Đặt margin 0 để ảnh nền chiếm toàn bộ màn hình */
+            padding: 0;
+            color: #ecf0f1; /* Màu chữ trắng sáng để dễ đọc trên nền ảnh */
+            background-color: #34495e; /* Màu nền dự phòng nếu ảnh không tải được */
+            
+            /* THÊM ẢNH NỀN TẠI ĐÂY */
+            background-image: url('https://inkythuatso.com/uploads/thumbnails/800/2022/03/6721332-22-16-03-22.jpg');
+            background-size: cover; /* Đảm bảo ảnh nền bao phủ toàn bộ màn hình */
+            background-position: center; /* Căn giữa ảnh nền */
+            background-attachment: fixed; /* Giữ ảnh nền cố định khi cuộn */
+            background-repeat: no-repeat; /* Không lặp lại ảnh nền */
+            
+            position: relative; /* Cần thiết cho lớp phủ màu */
+        }
+
+        /* Thêm lớp phủ màu để làm nổi bật văn bản trên ảnh nền */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Lớp phủ đen trong suốt 60% */
+            z-index: -1; /* Đặt lớp phủ dưới nội dung */
+        }
+
+        nav { 
+            padding: 15px 40px; /* Tăng padding để menu trông rộng rãi hơn */
+            background-color: rgba(0, 123, 255, 0.8); /* Màu nền xanh lam với độ trong suốt */
+            border-radius: 0; /* Loại bỏ bo góc nếu muốn menu kéo dài hết chiều rộng */
+            text-align: center; /* Căn giữa các mục menu */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        nav a { 
+            margin: 0 20px; /* Khoảng cách giữa các mục menu */
+            text-decoration: none; 
+            color: white; 
+            font-weight: bold; 
+            padding: 10px 15px; /* Tăng padding cho các liên kết */
+            transition: background-color 0.3s, transform 0.2s; 
+            display: inline-block; /* Để padding và transform hoạt động */
+            border-radius: 5px;
+        }
+        nav a:hover { 
+            background-color: #0056b3; 
+            transform: translateY(-2px); /* Hiệu ứng nhấc nhẹ khi rê chuột */
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 40px auto; /* Căn giữa container và tạo khoảng cách */
+            padding: 30px 40px;
+            background-color: rgba(255, 255, 255, 0.9); /* Nền trắng hơi trong suốt cho nội dung chính */
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            color: #333; /* Đổi màu chữ trong container thành đen để dễ đọc */
+        }
+
+        h1 { 
+            color: #e74c3c; /* Màu đỏ nổi bật */
+            border-bottom: 2px solid #e74c3c; 
+            padding-bottom: 10px; 
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 30px;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        ol { 
+            padding-left: 20px; 
+            list-style-type: decimal; /* Sử dụng số thứ tự */
+        }
+        li { 
+            margin-bottom: 12px; 
+            font-size: 1.1em;
+            color: #34495e; /* Màu chữ cho danh sách */
+        }
+        li strong {
+            color: #c0392b; /* Màu đỏ đậm cho phần in đậm trong danh sách */
+        }
     </style>
 </head>
 <body>
@@ -21,19 +99,18 @@
         <a href="dichvu.html">Dịch Vụ của Ngô Quang Vinh</a>
     </nav>
 
-    <h1>Các Dịch Vụ và Kỹ Năng của Ngô Quang Vinh 🛠️</h1>
-    <p>Ngô Quang Vinh có thể giúp bạn trong các lĩnh vực sau:</p>
-    
-    <ol>
-        <li>**Chơi tài xỉu nạp 200cành ăn 20củ:** .</li>
-        <li>**Cho vay vốn với lãi xuất thấp:** .</li>
-        <li>**Ghen ghét muốn phá acc NYC:** .</li>
-    </ol>
+    <div class="container">
+        <h1>Các Dịch Vụ và Kỹ Năng của Ngô Quang Vinh 🛠️</h1>
+        <p>Ngô Quang Vinh có thể giúp bạn trong các lĩnh vực sau:</p>
+        
+        <ol>
+            <li>**Chơi tài xỉu nạp 200cành ăn 20củ:** Cam kết lợi nhuận cao, kinh nghiệm lâu năm trong lĩnh vực tài xỉu trực tuyến.</li>
+            <li>**Cho vay vốn với lãi xuất thấp:** Hỗ trợ tài chính nhanh chóng, thủ tục đơn giản, lãi suất cạnh tranh phù hợp với mọi nhu cầu.</li>
+            <li>**Ghen ghét muốn phá acc NYC:** Cung cấp dịch vụ "hack" tài khoản mạng xã hội hoặc game để giúp bạn giải quyết các mâu thuẫn cá nhân.</li>
+        </ol>
 
-    <p style="margin-top: 30px;">Vui lòng xem trang Thông Tin để liên hệ trực tiếp!</p>
+        <p style="margin-top: 30px;">Vui lòng xem trang Thông Tin để liên hệ trực tiếp!</p>
+    </div>
 
 </body>
 </html>
-
-
-
