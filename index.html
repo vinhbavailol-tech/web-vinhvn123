@@ -176,6 +176,33 @@
             font-size: 0.9em;
             color: #777;
         }
+        /* CSS MỚI CHO KHU VỰC TIỀN ẢO */
+        .crypto-bonus {
+            text-align: center;
+            padding: 20px;
+            border: 2px dashed #f39c12; 
+            border-radius: 8px;
+            background-color: #fff9e9;
+            margin-bottom: 30px;
+        }
+        #claim-button {
+            background-color: #f39c12; 
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        #claim-button:hover {
+            background-color: #e67e22;
+        }
+        #claim-button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
@@ -193,6 +220,12 @@
     <div class="container">
         <img src="7cc8b7e0c2c34e9d17d2.jpg" alt="Hình ảnh cá nhân học sinh" class="profile-image">
 
+        <div class="crypto-bonus">
+            <h3>🎁 Bao Lì Xì Đăng Ký</h3>
+            <p id="bonus-status">Tạo acc sẽ nhận được bao lì xì ngẫu nhiên từ 0đ đến 500k!</p>
+            <button id="claim-button">Nhận Lì Xì Ngay</button>
+            <p id="current-balance" style="font-weight: bold; margin-top: 15px; color: #27ae60;">Số Dư: 0 đ</p>
+        </div>
         <h2>Hỗ trợ hack acc, giúp lấy lại acc bị mất</h2>
         <p>Chúng tôi cung cấp các dịch vụ về hack acc, tài xỉu, cho vay, giá cả hợp lý theo yêu cầu khách hàng.</p>
         
@@ -217,12 +250,65 @@
         </div>
     </div>
     
+    <script>
+        // Hàm định dạng số thành tiền tệ (thêm dấu phẩy)
+        function formatCurrency(amount) {
+            return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + ' đ';
+        }
+
+        const claimButton = document.getElementById('claim-button');
+        const bonusStatus = document.getElementById('bonus-status');
+        const currentBalance = document.getElementById('current-balance');
+
+        // Lấy trạng thái đã nhận từ trình duyệt (localStorage)
+        let hasClaimed = localStorage.getItem('vinh88_claimed_bonus');
+        let currentAmount = parseInt(localStorage.getItem('vinh88_current_balance')) || 0;
+
+        // Cập nhật số dư ban đầu
+        currentBalance.textContent = 'Số Dư: ' + formatCurrency(currentAmount);
+
+        if (hasClaimed === 'true') {
+            claimButton.disabled = true;
+            bonusStatus.textContent = '🎉 Bạn đã nhận lì xì. Mỗi acc chỉ nhận được 1 lần.';
+            claimButton.textContent = 'Đã Nhận';
+        }
+
+        claimButton.addEventListener('click', function() {
+            if (hasClaimed !== 'true') {
+                // 1. Logic tạo số tiền ngẫu nhiên từ 0 đến 500,000
+                const min = 0;
+                const max = 500000;
+                // Sử dụng Math.floor để đảm bảo là số nguyên
+                const bonusAmount = Math.floor(Math.random() * (max - min + 1)) + min;
+                
+                // 2. Cập nhật số dư
+                currentAmount += bonusAmount;
+
+                // 3. Lưu trạng thái mới vào trình duyệt
+                localStorage.setItem('vinh88_claimed_bonus', 'true');
+                localStorage.setItem('vinh88_current_balance', currentAmount);
+                hasClaimed = 'true';
+
+                // 4. Cập nhật giao diện
+                claimButton.disabled = true;
+                claimButton.textContent = 'Đã Nhận';
+                currentBalance.textContent = 'Số Dư: ' + formatCurrency(currentAmount);
+                
+                if (bonusAmount === 0) {
+                    bonusStatus.textContent = '😭 Bạn đã nhận được "có cái nịt" (0 đ)! Cố gắng lần sau.';
+                } else {
+                    bonusStatus.textContent = '🤑 Chúc mừng! Bạn đã nhận được ' + formatCurrency(bonusAmount) + '!';
+                }
+
+                // Cảnh báo (tùy chọn)
+                alert('Bạn đã nhận được: ' + formatCurrency(bonusAmount));
+
+            } else {
+                alert('Bạn đã nhận lì xì rồi. Mỗi tài khoản chỉ nhận được 1 lần!');
+            }
+        });
+    </script>
+    
 
 </body>
 </html>
-
-
-
-
-
-
