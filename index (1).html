@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ - Ngô Quang Vinh</title>
+    <style>
+        /* CHỈNH SỬA MÀU SẮC CHO GIAO DIỆN NỔI BẬT HƠN */
+        
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0;
+            color: #333; 
+            background-color: #f4f7f6; 
+            position: relative; 
+            min-height: 100vh; 
+            overflow-x: hidden; 
+        }
+        
+        /* CSS MỚI CHO HAI ẢNH DỌC LẤP ĐẦY HAI BÊN */
+        .side-image {
+            position: fixed; 
+            top: 0;
+            height: 100%; 
+            object-fit: cover; 
+            z-index: -1; 
+            /* THAY ĐỔI QUAN TRỌNG: Loại bỏ width cố định */
+            /* width sẽ được điều chỉnh thông qua margin của container */
+        }
+
+        .left-image {
+            left: 0;
+            /* Đảm bảo ảnh kéo dài đến rìa của container chính */
+            right: 50%; /* Kéo dài đến giữa */
+            margin-right: 500px; /* Sau đó lùi lại bằng một nửa chiều rộng container (1000px / 2) */
+            /* Hoặc đơn giản hơn: */
+            /* width: calc(50vw - 500px); */ /* 50vw - nửa chiều rộng container */
+        }
+
+        .right-image {
+            right: 0;
+            /* Đảm bảo ảnh kéo dài đến rìa của container chính */
+            left: 50%; /* Kéo dài đến giữa */
+            margin-left: 500px; /* Sau đó tiến lên bằng một nửa chiều rộng container (1000px / 2) */
+            /* Hoặc đơn giản hơn: */
+            /* width: calc(50vw - 500px); */ /* 50vw - nửa chiều rộng container */
+        }
+
+        .container {
+            max-width: 1000px; /* Chiều rộng cố định của nội dung chính */
+            margin: 0 auto; /* Căn giữa nội dung */
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9); 
+            box-shadow: 0 0 15px rgba(0,0,0,0.1); 
+            position: relative; 
+            z-index: 1; 
+            min-height: 100vh; 
+            
+            /* THAY ĐỔI QUAN TRỌNG: Thêm margin để tạo khoảng trống cho ảnh bên */
+            /* Điều này không cần thiết nếu dùng width: calc() cho ảnh bên */
+            /* margin-left: auto; */
+            /* margin-right: auto; */
+        }
+
+        /* MEDIA QUERY để điều chỉnh ảnh khi màn hình nhỏ hơn 1000px */
+        @media (max-width: 1000px) {
+            .side-image {
+                display: none; /* Ẩn ảnh bên nếu màn hình quá nhỏ để tránh làm hỏng bố cục */
+            }
+            .container {
+                max-width: 100%; /* Cho container chiếm toàn bộ chiều rộng có sẵn */
+                padding: 20px; /* Giảm padding */
+            }
+        }
+        /* MEDIA QUERY để điều chỉnh ảnh trên màn hình lớn */
+        @media (min-width: 1001px) {
+            .left-image {
+                width: calc((100vw - 1000px) / 2); /* Tính toán chiều rộng lấp đầy bên trái */
+            }
+            .right-image {
+                width: calc((100vw - 1000px) / 2); /* Tính toán chiều rộng lấp đầy bên phải */
+            }
+        }
+
+
+        h1 { 
+            color: #e74c3c; 
+            font-weight: bold; 
+            padding: 20px 0;
+            text-align: center;
+            background-color: #ecf0f1; 
+            margin-bottom: 0;
+            font-size: 2.5em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        } 
+
+        ul.nav-menu { 
+            list-style-type: none; 
+            padding: 10px 0; 
+            margin: 0;
+            background-color: #2c3e50; 
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        ul.nav-menu li { 
+            display: inline-block;
+            margin: 0 15px;
+        }
+        ul.nav-menu li a { 
+            color: #ecf0f1; 
+            text-decoration: none; 
+            font-weight: bold;
+            padding: 8px 12px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        ul.nav-menu li a:hover {
+            background-color: #3498db; 
+            border-radius: 4px;
+        }
+        
+        h2 { 
+            color: #e74c3c; 
+            border-bottom: 2px solid #bdc3c7; 
+            padding-bottom: 10px; 
+            margin-top: 40px;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            color: #2980b9; 
+            margin-top: 30px;
+        }
+
+        .subscribe-form input[type="email"] {
+            padding: 8px;
+            border: 2px solid #27ae60; 
+            border-radius: 4px;
+            width: 250px;
+        }
+        .subscribe-form input[type="submit"] {
+            background-color: #27ae60; 
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .subscribe-form input[type="submit"]:hover {
+            background-color: #1abc9c;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #bdc3c7, rgba(0, 0, 0, 0));
+            margin: 30px 0;
+        }
+
+        .profile-image {
+            display: block;
+            margin: 0 auto 30px auto; 
+            border-radius: 50%; 
+            max-width: 200px; 
+            height: auto;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <img src="0b2a79418862043c5d73.jpg" alt="Ảnh trang trí bên trái" class="side-image left-image">
+    <img src="56c5abb85a9bd6c58f8a.jpg" alt="Ảnh trang trí bên phải" class="side-image right-image">
+
+    <h1>Tôi Là Chủ Của Web Làm Giàu Vinh88.vn</h1>
+    
+    <ul class="nav-menu">
+        <li><a href="index.html">Trang Chủ</a></li>
+        <li><a href="thongtin.html">Thông Tin</a></li>
+        <li><a href="dichvu.html">Dịch Vụ</a></li>
+    </ul>
+
+    <div class="container">
+        <img src="7cc8b7e0c2c34e9d17d2.jpg" alt="Hình ảnh cá nhân học sinh" class="profile-image">
+
+        <h2>Hỗ trợ hack acc, giúp lấy lại acc bị mất</h2>
+        <p>Chúng tôi cung cấp các dịch vụ về hack acc, tài xỉu, cho vay, giá cả hợp lý theo yêu cầu khách hàng.</p>
+        
+        <h3>Đăng ký nhận thông báo mới từ chúng tôi</h3>
+        <div class="subscribe-form">
+            <input type="email" placeholder="Nhập Email">
+            <input type="submit" value="Đăng ký">
+        </div>
+
+        <hr>
+        
+        <h2>Tài xỉu</h2>
+        <p>Tài Xỉu (Sic Bo) là trò chơi cá cược cổ điển dùng ba viên xúc xắc, dự đoán tổng điểm hoặc các con số sẽ xuất hiện là trò chơi yêu thích của các con bạc.</p>
+        
+        <h2>Cho vay trả góp</h2>
+        <p>Cho vay trả góp là hình thức vay tiền mà người vay sẽ thanh toán cả gốc và lãi theo từng đợt định kỳ (thường là hàng tháng) cho đến khi hoàn tất khoản khoản vay dành cho con bạc muốn gỡ gạt.</p>
+        
+        <h2>Hack acc</h2>
+        <p>Đánh cắp thông tin cá nhân hoặc tài chính-Chiếm đoạt tài sản trong game hoặc dịch vụ-Gửi thư rác (spam) hoặc lan truyền phần mềm độc hại-Phá hoại danh tiếng hoặc tài khoản của người khác.</p>
+        <div class="footer">
+            <p>© Mark Zuckerberg VN (Tô Hoàng Anh Tú)😎 | Hacker Anonymous (Ngô Quang Vinh)👾</p>
+        </div>
+    </div>
+    
+
+</body>
+</html>
+
+
+
+
+
+
